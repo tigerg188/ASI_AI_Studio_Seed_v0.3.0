@@ -1,0 +1,1817 @@
+{
+  "projects": [
+    {
+      "projectId": "proj-seed-asi-01",
+      "name": "ASI Seed 规约与多生态基准项目",
+      "description": "官方种子包示例项目，包含 Agent Skills 规约、MCP 工具配置与 Node.js 启动脚本。",
+      "source": {
+        "kind": "github",
+        "uri": "https://github.com/tigerg188/ASI_AI_Studio_Seed_v0.3.0",
+        "revision": "v0.3.0"
+      },
+      "createdAt": "2026-10-09T04:54:39.840Z",
+      "updatedAt": "2026-10-09T04:54:39.840Z",
+      "status": "READY",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "size": 2450,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "signals": [
+            "skill_entry",
+            "markdown_spec"
+          ],
+          "contentPreview": "---\nname: asi-core-skill\ndescription: ASI 核心规范执行工具包\n---\n# ASI Core Skill"
+        },
+        {
+          "path": "package.json",
+          "size": 890,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "signals": [
+            "node_manifest",
+            "scripts_defined"
+          ],
+          "contentPreview": "{\n  \"name\": \"asi-agent-seed\",\n  \"version\": \"0.3.0\",\n  \"scripts\": { \"start\": \"node server.js\" }\n}"
+        },
+        {
+          "path": "mcp.json",
+          "size": 620,
+          "sha256": "9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b",
+          "signals": [
+            "mcp_config"
+          ],
+          "contentPreview": "{\n  \"mcpServers\": {\n    \"asi-tools\": { \"command\": \"node\", \"args\": [\"./dist/index.js\"] }\n  }\n}"
+        },
+        {
+          "path": "README.md",
+          "size": 3200,
+          "sha256": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b",
+          "signals": [
+            "documentation"
+          ],
+          "contentPreview": "# ASI Agent Seed\n面向通用智能项目识别与受控执行的种子套件。"
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "read_imported_files",
+          "name": "文件读取",
+          "available": true,
+          "reason": "文件已解析",
+          "category": "core"
+        },
+        {
+          "capabilityId": "static_rule_detection",
+          "name": "规则识别",
+          "available": true,
+          "reason": "特征提取完毕",
+          "category": "core"
+        }
+      ],
+      "entryCandidates": [
+        {
+          "ruleId": "rule-agent-skills",
+          "ruleName": "Agent Skills 生态约定",
+          "confidenceLevel": "high",
+          "isPrimary": true,
+          "evidence": [
+            {
+              "path": "SKILL.md",
+              "reason": "根目录检测到标准的 YAML 元数据标头与工具契约声明。"
+            }
+          ],
+          "limitations": [
+            "仅能进行只读规则扫描与任务规划，当前禁止直接在宿主机进行未沙箱化工具调用。"
+          ],
+          "missingPrerequisites": [
+            "需在模型与环境配置中激活服务端模型调用接口。"
+          ],
+          "recommendedNextStep": "执行拓扑规划，生成符合 Skill 契约的任务分析报告与独立验证。"
+        },
+        {
+          "ruleId": "rule-nodejs",
+          "ruleName": "Node.js 项目约定",
+          "confidenceLevel": "medium",
+          "isPrimary": false,
+          "evidence": [
+            {
+              "path": "package.json",
+              "reason": "检测到项目清单及 \"start\" 脚本。"
+            }
+          ],
+          "limitations": [
+            "云端为非特权受限容器，不支持执行含有破坏性命令的启动脚本。"
+          ],
+          "missingPrerequisites": [
+            "需检查依赖锁定文件。"
+          ],
+          "recommendedNextStep": "执行只读依赖安全性审计。"
+        },
+        {
+          "ruleId": "rule-mcp",
+          "ruleName": "MCP Server / 工具规约",
+          "confidenceLevel": "medium",
+          "isPrimary": false,
+          "evidence": [
+            {
+              "path": "mcp.json",
+              "reason": "声明了 MCP 工具与服务定义。"
+            }
+          ],
+          "limitations": [
+            "当前环境不支持 stdio 本地双向管道，仅支持协议格式验证。"
+          ],
+          "missingPrerequisites": [
+            "需本地桥接网关。"
+          ],
+          "recommendedNextStep": "执行 MCP Schema 契约校验。"
+        }
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "runId": "run-acceptance-1791520441137",
+      "projectId": "test-run-auto-1791520441136",
+      "planId": "plan-1791520441135",
+      "status": "VERIFIED",
+      "strategy": "auto_dependency",
+      "startedAt": "2026-10-09T04:34:01.138Z",
+      "progressPercent": 100,
+      "totalNodes": 9,
+      "executedNodes": 8,
+      "verifiedNodes": 1,
+      "failedNodes": 0,
+      "topology": {
+        "planId": "plan-1791520441135",
+        "projectId": "test-proj-01",
+        "title": "测试项目 执行拓扑计划",
+        "nodes": [
+          {
+            "nodeId": "start",
+            "name": "项目入口与输入",
+            "nodeType": "file_analysis",
+            "description": "接收用户任务和项目输入，校验文件哈希并提取项目元数据。",
+            "dependsOn": [],
+            "relationToNext": "NEXT",
+            "inputs": [
+              {
+                "name": "用户任务/资料",
+                "type": "ProjectManifest",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "标准化任务输入",
+                "type": "StandardTaskInput"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 30,
+            "maxRetries": 1,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "read_imported_files"
+            ],
+            "executedResult": {
+              "step": "entry_validation",
+              "fileCount": 1,
+              "manifestId": "test-run-auto-1791520441136",
+              "sourceKind": "files",
+              "summary": "已加载项目输入清单，包含 1 个文件。"
+            }
+          },
+          {
+            "nodeId": "load",
+            "name": "按原生规则加载",
+            "nodeType": "rule_matching",
+            "description": "复刻项目原生规约，读取并解析规则文档（如 SKILL.md、package.json 等）。",
+            "dependsOn": [
+              "start"
+            ],
+            "relationToNext": "NEXT",
+            "inputs": [
+              {
+                "name": "项目规则与文件",
+                "type": "RawProjectFiles",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "加载记录",
+                "type": "RuleLoadRecord"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 30,
+            "maxRetries": 1,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "static_rule_detection"
+            ],
+            "executedResult": {
+              "step": "rule_loading",
+              "primaryRule": "Agent Skills 生态约定",
+              "evidence": [
+                {
+                  "path": "SKILL.md",
+                  "reason": "测试证据"
+                }
+              ],
+              "summary": "已按原生规约成功解析入口规则：Agent Skills 生态约定。"
+            }
+          },
+          {
+            "nodeId": "prep",
+            "name": "资料准备",
+            "nodeType": "file_analysis",
+            "description": "整理输入资料、上下文约束与执行前置条件，准备分支任务包。",
+            "dependsOn": [
+              "load"
+            ],
+            "relationToNext": "PARALLEL",
+            "inputs": [
+              {
+                "name": "标准化任务输入",
+                "type": "StandardTaskInput",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "资料包",
+                "type": "AnalysisContextPackage"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 30,
+            "maxRetries": 1,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "read_imported_files"
+            ],
+            "executedResult": {
+              "step": "context_preparation",
+              "contextSize": 60,
+              "summary": "完成任务上下文提取与并行分支输入包打包。"
+            }
+          },
+          {
+            "nodeId": "market",
+            "name": "市场分析",
+            "nodeType": "plan_synthesis",
+            "description": "并行分支：提取项目行业需求、目标受众与核心价值定义。",
+            "dependsOn": [
+              "prep"
+            ],
+            "relationToNext": "MERGE",
+            "inputs": [
+              {
+                "name": "资料包",
+                "type": "AnalysisContextPackage",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "市场分析草稿",
+                "type": "MarketAnalysisDraft"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 60,
+            "maxRetries": 2,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "static_rule_detection"
+            ],
+            "executedResult": {
+              "branch": "market",
+              "findings": "针对项目“自动化验收测试项目”完成市场与需求分析，核心规约覆盖非程序员工作流。"
+            }
+          },
+          {
+            "nodeId": "comp",
+            "name": "竞争分析",
+            "nodeType": "plan_synthesis",
+            "description": "并行分支：对比同类生态方案，提取差异化技术特征与依赖约束。",
+            "dependsOn": [
+              "prep"
+            ],
+            "relationToNext": "MERGE",
+            "inputs": [
+              {
+                "name": "资料包",
+                "type": "AnalysisContextPackage",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "竞争分析草稿",
+                "type": "CompAnalysisDraft"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 60,
+            "maxRetries": 2,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "static_rule_detection"
+            ],
+            "executedResult": {
+              "branch": "comp",
+              "findings": "完成同类生态兼容性对比，已对齐 Agent Skills 生态约定 约定。"
+            }
+          },
+          {
+            "nodeId": "finance",
+            "name": "财务分析",
+            "nodeType": "plan_synthesis",
+            "description": "并行分支：分析资源消耗、Token 成本预算与环境部署经济性。",
+            "dependsOn": [
+              "prep"
+            ],
+            "relationToNext": "MERGE",
+            "inputs": [
+              {
+                "name": "资料包",
+                "type": "AnalysisContextPackage",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "财务分析草稿",
+                "type": "FinanceAnalysisDraft"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 60,
+            "maxRetries": 2,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "static_rule_detection"
+            ],
+            "executedResult": {
+              "branch": "finance",
+              "findings": "运行资源预算安全，当前零外部费用支出，未发起付费特权调用。"
+            }
+          },
+          {
+            "nodeId": "merge",
+            "name": "综合判断",
+            "nodeType": "plan_synthesis",
+            "description": "汇总市场、竞争与财务三路分支成果，对齐上下文并标记缺失项。",
+            "dependsOn": [
+              "market",
+              "comp",
+              "finance"
+            ],
+            "relationToNext": "NEXT",
+            "inputs": [
+              {
+                "name": "分支成果",
+                "type": "BranchDeliverables",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "综合判断稿",
+                "type": "ConsolidatedDraft"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 30,
+            "maxRetries": 1,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "static_rule_detection"
+            ],
+            "executedResult": {
+              "step": "merge",
+              "branchesMerged": [
+                "market",
+                "comp",
+                "finance"
+              ],
+              "summary": "市场、竞争与财务三路分支成果已成功汇聚对齐，无矛盾项。"
+            }
+          },
+          {
+            "nodeId": "verify",
+            "name": "交付物检查",
+            "nodeType": "verification",
+            "description": "独立验证器复核：检查生成内容的非空性、Markdown 格式、SHA-256 哈希与元数据。",
+            "dependsOn": [
+              "merge"
+            ],
+            "relationToNext": "NEXT",
+            "inputs": [
+              {
+                "name": "综合判断稿",
+                "type": "ConsolidatedDraft",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "验证记录",
+                "type": "VerificationRecord"
+              }
+            ],
+            "status": "VERIFIED",
+            "timeoutSeconds": 30,
+            "maxRetries": 1,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "independent_verification"
+            ],
+            "executedResult": {
+              "verifiedArtifactId": "art-1791520442925-liaz",
+              "passed": true,
+              "checks": [
+                {
+                  "checkName": "产物内容非空性校验",
+                  "passed": true,
+                  "detail": "产物包含有效内容，长度 303 字符。"
+                },
+                {
+                  "checkName": "SHA-256 数据完整性校验",
+                  "passed": true,
+                  "detail": "实际哈希值 8d5fcca80bb72546... 与声明哈希严格一致。"
+                },
+                {
+                  "checkName": "Markdown 规范结构标头校验",
+                  "passed": true,
+                  "detail": "检测到有效的 Markdown 标题层级。"
+                },
+                {
+                  "checkName": "溯源元数据完整性",
+                  "passed": true,
+                  "detail": "来源节点: verify, 关联运行: run-acceptance-1791520441137"
+                }
+              ]
+            }
+          },
+          {
+            "nodeId": "final",
+            "name": "最终交付",
+            "nodeType": "artifact_generation",
+            "description": "生成最终经独立验证通过的可审计产物并存入成果库，完成运行流。",
+            "dependsOn": [
+              "verify"
+            ],
+            "relationToNext": "NEXT",
+            "inputs": [
+              {
+                "name": "通过检查的成果",
+                "type": "VerifiedDeliverable",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "最终报告",
+                "type": "FinalArtifact"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 30,
+            "maxRetries": 1,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "read_imported_files"
+            ],
+            "executedResult": {
+              "step": "final_delivery",
+              "status": "COMPLETED",
+              "summary": "项目“自动化验收测试项目”全流程执行完毕，已生成 VERIFIED 审计成果。"
+            }
+          }
+        ],
+        "createdAt": "2026-10-09T04:34:01.135Z"
+      },
+      "currentNodeId": "final",
+      "finishedAt": "2026-10-09T04:34:03.434Z"
+    },
+    {
+      "runId": "run-acceptance-1791520399535",
+      "projectId": "test-run-auto-1791520399535",
+      "planId": "plan-1791520399534",
+      "status": "VERIFIED",
+      "strategy": "auto_dependency",
+      "startedAt": "2026-10-09T04:33:19.535Z",
+      "progressPercent": 100,
+      "totalNodes": 9,
+      "executedNodes": 8,
+      "verifiedNodes": 1,
+      "failedNodes": 0,
+      "topology": {
+        "planId": "plan-1791520399534",
+        "projectId": "test-proj-01",
+        "title": "测试项目 执行拓扑计划",
+        "nodes": [
+          {
+            "nodeId": "start",
+            "name": "项目入口与输入",
+            "nodeType": "file_analysis",
+            "description": "接收用户任务和项目输入，校验文件哈希并提取项目元数据。",
+            "dependsOn": [],
+            "relationToNext": "NEXT",
+            "inputs": [
+              {
+                "name": "用户任务/资料",
+                "type": "ProjectManifest",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "标准化任务输入",
+                "type": "StandardTaskInput"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 30,
+            "maxRetries": 1,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "read_imported_files"
+            ],
+            "executedResult": {
+              "step": "entry_validation",
+              "fileCount": 1,
+              "manifestId": "test-run-auto-1791520399535",
+              "sourceKind": "files",
+              "summary": "已加载项目输入清单，包含 1 个文件。"
+            }
+          },
+          {
+            "nodeId": "load",
+            "name": "按原生规则加载",
+            "nodeType": "rule_matching",
+            "description": "复刻项目原生规约，读取并解析规则文档（如 SKILL.md、package.json 等）。",
+            "dependsOn": [
+              "start"
+            ],
+            "relationToNext": "NEXT",
+            "inputs": [
+              {
+                "name": "项目规则与文件",
+                "type": "RawProjectFiles",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "加载记录",
+                "type": "RuleLoadRecord"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 30,
+            "maxRetries": 1,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "static_rule_detection"
+            ],
+            "executedResult": {
+              "step": "rule_loading",
+              "primaryRule": "Agent Skills 生态约定",
+              "evidence": [
+                {
+                  "path": "SKILL.md",
+                  "reason": "测试证据"
+                }
+              ],
+              "summary": "已按原生规约成功解析入口规则：Agent Skills 生态约定。"
+            }
+          },
+          {
+            "nodeId": "prep",
+            "name": "资料准备",
+            "nodeType": "file_analysis",
+            "description": "整理输入资料、上下文约束与执行前置条件，准备分支任务包。",
+            "dependsOn": [
+              "load"
+            ],
+            "relationToNext": "PARALLEL",
+            "inputs": [
+              {
+                "name": "标准化任务输入",
+                "type": "StandardTaskInput",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "资料包",
+                "type": "AnalysisContextPackage"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 30,
+            "maxRetries": 1,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "read_imported_files"
+            ],
+            "executedResult": {
+              "step": "context_preparation",
+              "contextSize": 60,
+              "summary": "完成任务上下文提取与并行分支输入包打包。"
+            }
+          },
+          {
+            "nodeId": "market",
+            "name": "市场分析",
+            "nodeType": "plan_synthesis",
+            "description": "并行分支：提取项目行业需求、目标受众与核心价值定义。",
+            "dependsOn": [
+              "prep"
+            ],
+            "relationToNext": "MERGE",
+            "inputs": [
+              {
+                "name": "资料包",
+                "type": "AnalysisContextPackage",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "市场分析草稿",
+                "type": "MarketAnalysisDraft"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 60,
+            "maxRetries": 2,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "static_rule_detection"
+            ],
+            "executedResult": {
+              "branch": "market",
+              "findings": "针对项目“自动化验收测试项目”完成市场与需求分析，核心规约覆盖非程序员工作流。"
+            }
+          },
+          {
+            "nodeId": "comp",
+            "name": "竞争分析",
+            "nodeType": "plan_synthesis",
+            "description": "并行分支：对比同类生态方案，提取差异化技术特征与依赖约束。",
+            "dependsOn": [
+              "prep"
+            ],
+            "relationToNext": "MERGE",
+            "inputs": [
+              {
+                "name": "资料包",
+                "type": "AnalysisContextPackage",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "竞争分析草稿",
+                "type": "CompAnalysisDraft"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 60,
+            "maxRetries": 2,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "static_rule_detection"
+            ],
+            "executedResult": {
+              "branch": "comp",
+              "findings": "完成同类生态兼容性对比，已对齐 Agent Skills 生态约定 约定。"
+            }
+          },
+          {
+            "nodeId": "finance",
+            "name": "财务分析",
+            "nodeType": "plan_synthesis",
+            "description": "并行分支：分析资源消耗、Token 成本预算与环境部署经济性。",
+            "dependsOn": [
+              "prep"
+            ],
+            "relationToNext": "MERGE",
+            "inputs": [
+              {
+                "name": "资料包",
+                "type": "AnalysisContextPackage",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "财务分析草稿",
+                "type": "FinanceAnalysisDraft"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 60,
+            "maxRetries": 2,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "static_rule_detection"
+            ],
+            "executedResult": {
+              "branch": "finance",
+              "findings": "运行资源预算安全，当前零外部费用支出，未发起付费特权调用。"
+            }
+          },
+          {
+            "nodeId": "merge",
+            "name": "综合判断",
+            "nodeType": "plan_synthesis",
+            "description": "汇总市场、竞争与财务三路分支成果，对齐上下文并标记缺失项。",
+            "dependsOn": [
+              "market",
+              "comp",
+              "finance"
+            ],
+            "relationToNext": "NEXT",
+            "inputs": [
+              {
+                "name": "分支成果",
+                "type": "BranchDeliverables",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "综合判断稿",
+                "type": "ConsolidatedDraft"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 30,
+            "maxRetries": 1,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "static_rule_detection"
+            ],
+            "executedResult": {
+              "step": "merge",
+              "branchesMerged": [
+                "market",
+                "comp",
+                "finance"
+              ],
+              "summary": "市场、竞争与财务三路分支成果已成功汇聚对齐，无矛盾项。"
+            }
+          },
+          {
+            "nodeId": "verify",
+            "name": "交付物检查",
+            "nodeType": "verification",
+            "description": "独立验证器复核：检查生成内容的非空性、Markdown 格式、SHA-256 哈希与元数据。",
+            "dependsOn": [
+              "merge"
+            ],
+            "relationToNext": "NEXT",
+            "inputs": [
+              {
+                "name": "综合判断稿",
+                "type": "ConsolidatedDraft",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "验证记录",
+                "type": "VerificationRecord"
+              }
+            ],
+            "status": "VERIFIED",
+            "timeoutSeconds": 30,
+            "maxRetries": 1,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "independent_verification"
+            ],
+            "executedResult": {
+              "verifiedArtifactId": "art-1791520401312-76ag",
+              "passed": true,
+              "checks": [
+                {
+                  "checkName": "产物内容非空性校验",
+                  "passed": true,
+                  "detail": "产物包含有效内容，长度 303 字符。"
+                },
+                {
+                  "checkName": "SHA-256 数据完整性校验",
+                  "passed": true,
+                  "detail": "实际哈希值 b271a5e9d66256ee... 与声明哈希严格一致。"
+                },
+                {
+                  "checkName": "Markdown 规范结构标头校验",
+                  "passed": true,
+                  "detail": "检测到有效的 Markdown 标题层级。"
+                },
+                {
+                  "checkName": "溯源元数据完整性",
+                  "passed": true,
+                  "detail": "来源节点: verify, 关联运行: run-acceptance-1791520399535"
+                }
+              ]
+            }
+          },
+          {
+            "nodeId": "final",
+            "name": "最终交付",
+            "nodeType": "artifact_generation",
+            "description": "生成最终经独立验证通过的可审计产物并存入成果库，完成运行流。",
+            "dependsOn": [
+              "verify"
+            ],
+            "relationToNext": "NEXT",
+            "inputs": [
+              {
+                "name": "通过检查的成果",
+                "type": "VerifiedDeliverable",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "name": "最终报告",
+                "type": "FinalArtifact"
+              }
+            ],
+            "status": "EXECUTED",
+            "timeoutSeconds": 30,
+            "maxRetries": 1,
+            "riskLevel": "low",
+            "requiredCapabilities": [
+              "read_imported_files"
+            ],
+            "executedResult": {
+              "step": "final_delivery",
+              "status": "COMPLETED",
+              "summary": "项目“自动化验收测试项目”全流程执行完毕，已生成 VERIFIED 审计成果。"
+            }
+          }
+        ],
+        "createdAt": "2026-10-09T04:33:19.534Z"
+      },
+      "currentNodeId": "final",
+      "finishedAt": "2026-10-09T04:33:21.820Z"
+    }
+  ],
+  "events": [
+    {
+      "eventId": "evt-1791519527450-start",
+      "runId": "run-1791519527449-3orp",
+      "nodeId": null,
+      "timestamp": "2026-10-09T04:18:47.450Z",
+      "eventType": "run_created",
+      "status": "RUNNING",
+      "source": "execution_orchestrator",
+      "action": "初始化运行实例",
+      "inputSummary": "项目: ASI Seed 规约与多生态基准项目 (proj-seed-asi-01), 策略: auto_dependency",
+      "outputSummary": "拓扑共包含 5 个节点。",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791519527451-node-01-start",
+      "runId": "run-1791519527449-3orp",
+      "nodeId": "node-01",
+      "timestamp": "2026-10-09T04:18:47.451Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 受控读取项目清单与元数据",
+      "inputSummary": "输入契约: projectManifest",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791519527451-node-01-done",
+      "runId": "run-1791519527449-3orp",
+      "nodeId": "node-01",
+      "timestamp": "2026-10-09T04:18:47.451Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 受控读取项目清单与元数据",
+      "durationMs": 1,
+      "outputSummary": "{\"fileCount\":4,\"files\":[{\"path\":\"SKILL.md\",\"size\":2450,\"sha256\":\"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"},{\"path\":\"package.json\",\"size\":890,\"sha256\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\"},{\"path\":\"mcp.json\",\"size\":620,\"sha256\":\"9a8b7c6d5e4f3a2b1",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791519527453-node-02-start",
+      "runId": "run-1791519527449-3orp",
+      "nodeId": "node-02",
+      "timestamp": "2026-10-09T04:18:47.453Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 生态规约与入口证据审查",
+      "inputSummary": "输入契约: fileIndex",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791519527453-node-02-done",
+      "runId": "run-1791519527449-3orp",
+      "nodeId": "node-02",
+      "timestamp": "2026-10-09T04:18:47.453Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 生态规约与入口证据审查",
+      "durationMs": 1,
+      "outputSummary": "{\"candidates\":[{\"ruleId\":\"rule-agent-skills\",\"ruleName\":\"Agent Skills 生态约定\",\"confidenceLevel\":\"high\",\"isPrimary\":true,\"evidence\":[{\"path\":\"SKILL.md\",\"reason\":\"根目录检测到标准的 YAML 元数据标头与工具契约声明。\"}],\"limitations\":[\"仅能进行只读规则扫描与任务规划，当前禁止直接在宿主机进行未沙箱化工具调用。\"],\"missingPrerequisites\":[\"需在模型与环境配置中激活服务端模型调用接口。\"],\"re",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791519527454-node-03-start",
+      "runId": "run-1791519527449-3orp",
+      "nodeId": "node-03",
+      "timestamp": "2026-10-09T04:18:47.454Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 任务拆解与规约计划综合",
+      "inputSummary": "输入契约: entryEvidence",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791519531991-node-03-done",
+      "runId": "run-1791519527449-3orp",
+      "nodeId": "node-03",
+      "timestamp": "2026-10-09T04:18:51.991Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 任务拆解与规约计划综合",
+      "durationMs": 4538,
+      "outputSummary": "{\"planContent\":\"# ASI Seed 规约与多生态基准项目 — 规约计划综合报告 (确定性适配引擎)\\n模式: 本地规则引擎降级综合 (无外部模型依赖)\\n\\n## 1. 规约判定\\n项目主生态判定为: **Agent Skills 生态约定** (置信等级: high)\\n\\n## 2. 安全边界声明\\n- 当前宿主为 Node.js 运行时，未配置物理隔离沙箱。\\n- 外部不可信脚本执行被严格限制，所有特征分析采用无副作用静态提取。\\n\\n## 3. 验收要求\\n- 生成报告须符合 Markdown 语法与 SHA-256 完整性检验。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791519531992-node-04-start",
+      "runId": "run-1791519527449-3orp",
+      "nodeId": "node-04",
+      "timestamp": "2026-10-09T04:18:51.992Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 生成可审计执行产物",
+      "inputSummary": "输入契约: taskPlan",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791519531993-node-04-done",
+      "runId": "run-1791519527449-3orp",
+      "nodeId": "node-04",
+      "timestamp": "2026-10-09T04:18:51.993Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 生成可审计执行产物",
+      "durationMs": 1,
+      "outputSummary": "{\"artifactId\":\"art-1791519531992-9t8a\",\"sha256\":\"a7c4b543d0f0c2337b985b49fa398db6867aa9a6df8400a62233195e46698872\"}",
+      "artifactIds": [
+        "art-1791519531992-9t8a"
+      ],
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791519531994-node-05-start",
+      "runId": "run-1791519527449-3orp",
+      "nodeId": "node-05",
+      "timestamp": "2026-10-09T04:18:51.994Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 独立验证器结构复核",
+      "inputSummary": "输入契约: auditArtifact",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791519531995-node-05-done",
+      "runId": "run-1791519527449-3orp",
+      "nodeId": "node-05",
+      "timestamp": "2026-10-09T04:18:51.995Z",
+      "eventType": "verification_result",
+      "status": "VERIFIED",
+      "source": "runtime_executor",
+      "action": "节点完成: 独立验证器结构复核",
+      "durationMs": 1,
+      "outputSummary": "{\"verifiedArtifactId\":\"art-1791519531992-9t8a\",\"passed\":true,\"checks\":[{\"checkName\":\"产物内容非空性校验\",\"passed\":true,\"detail\":\"产物包含有效内容，长度 288 字符。\"},{\"checkName\":\"SHA-256 数据完整性校验\",\"passed\":true,\"detail\":\"实际哈希值 a7c4b543d0f0c233... 与声明哈希严格一致。\"},{\"checkName\":\"Markdown 规范结构标头校验\",\"passed\":true,\"detail\":\"检测到有效的 ",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520399536-start",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": null,
+      "timestamp": "2026-10-09T04:33:19.536Z",
+      "eventType": "run_created",
+      "status": "RUNNING",
+      "source": "execution_orchestrator",
+      "action": "初始化运行实例",
+      "inputSummary": "项目: 自动化验收测试项目 (test-run-auto-1791520399535), 策略: auto_dependency",
+      "outputSummary": "执行拓扑包含 9 个节点，状态机启动。",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520399537-start-start",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "start",
+      "timestamp": "2026-10-09T04:33:19.537Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 项目入口与输入",
+      "inputSummary": "输入契约: 用户任务/资料",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520399537-start-done",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "start",
+      "timestamp": "2026-10-09T04:33:19.537Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 项目入口与输入",
+      "durationMs": 0,
+      "outputSummary": "{\"step\":\"entry_validation\",\"fileCount\":1,\"manifestId\":\"test-run-auto-1791520399535\",\"sourceKind\":\"files\",\"summary\":\"已加载项目输入清单，包含 1 个文件。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520399790-load-start",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "load",
+      "timestamp": "2026-10-09T04:33:19.790Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 按原生规则加载",
+      "inputSummary": "输入契约: 项目规则与文件",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520399791-load-done",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "load",
+      "timestamp": "2026-10-09T04:33:19.791Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 按原生规则加载",
+      "durationMs": 1,
+      "outputSummary": "{\"step\":\"rule_loading\",\"primaryRule\":\"Agent Skills 生态约定\",\"evidence\":[{\"path\":\"SKILL.md\",\"reason\":\"测试证据\"}],\"summary\":\"已按原生规约成功解析入口规则：Agent Skills 生态约定。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520400043-prep-start",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "prep",
+      "timestamp": "2026-10-09T04:33:20.043Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 资料准备",
+      "inputSummary": "输入契约: 标准化任务输入",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520400044-prep-done",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "prep",
+      "timestamp": "2026-10-09T04:33:20.044Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 资料准备",
+      "durationMs": 2,
+      "outputSummary": "{\"step\":\"context_preparation\",\"contextSize\":60,\"summary\":\"完成任务上下文提取与并行分支输入包打包。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520400297-market-start",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "market",
+      "timestamp": "2026-10-09T04:33:20.297Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 市场分析",
+      "inputSummary": "输入契约: 资料包",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520400298-market-done",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "market",
+      "timestamp": "2026-10-09T04:33:20.298Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 市场分析",
+      "durationMs": 2,
+      "outputSummary": "{\"branch\":\"market\",\"findings\":\"针对项目“自动化验收测试项目”完成市场与需求分析，核心规约覆盖非程序员工作流。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520400551-comp-start",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "comp",
+      "timestamp": "2026-10-09T04:33:20.551Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 竞争分析",
+      "inputSummary": "输入契约: 资料包",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520400551-comp-done",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "comp",
+      "timestamp": "2026-10-09T04:33:20.551Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 竞争分析",
+      "durationMs": 1,
+      "outputSummary": "{\"branch\":\"comp\",\"findings\":\"完成同类生态兼容性对比，已对齐 Agent Skills 生态约定 约定。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520400804-finance-start",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "finance",
+      "timestamp": "2026-10-09T04:33:20.804Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 财务分析",
+      "inputSummary": "输入契约: 资料包",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520400805-finance-done",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "finance",
+      "timestamp": "2026-10-09T04:33:20.805Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 财务分析",
+      "durationMs": 1,
+      "outputSummary": "{\"branch\":\"finance\",\"findings\":\"运行资源预算安全，当前零外部费用支出，未发起付费特权调用。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520401058-merge-start",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "merge",
+      "timestamp": "2026-10-09T04:33:21.058Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 综合判断",
+      "inputSummary": "输入契约: 分支成果",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520401059-merge-done",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "merge",
+      "timestamp": "2026-10-09T04:33:21.059Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 综合判断",
+      "durationMs": 2,
+      "outputSummary": "{\"step\":\"merge\",\"branchesMerged\":[\"market\",\"comp\",\"finance\"],\"summary\":\"市场、竞争与财务三路分支成果已成功汇聚对齐，无矛盾项。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520401311-verify-start",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "verify",
+      "timestamp": "2026-10-09T04:33:21.311Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 交付物检查",
+      "inputSummary": "输入契约: 综合判断稿",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520401313-verify-done",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "verify",
+      "timestamp": "2026-10-09T04:33:21.313Z",
+      "eventType": "verification_result",
+      "status": "VERIFIED",
+      "source": "runtime_executor",
+      "action": "节点完成: 交付物检查",
+      "durationMs": 3,
+      "outputSummary": "{\"verifiedArtifactId\":\"art-1791520401312-76ag\",\"passed\":true,\"checks\":[{\"checkName\":\"产物内容非空性校验\",\"passed\":true,\"detail\":\"产物包含有效内容，长度 303 字符。\"},{\"checkName\":\"SHA-256 数据完整性校验\",\"passed\":true,\"detail\":\"实际哈希值 b271a5e9d66256ee... 与声明哈希严格一致。\"},{\"checkName\":\"Markdown 规范结构标头校验\",\"passed\":true,\"detail\":\"检测到有效的 ",
+      "artifactIds": [
+        "art-1791520401312-76ag"
+      ],
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520401567-final-start",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "final",
+      "timestamp": "2026-10-09T04:33:21.567Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 最终交付",
+      "inputSummary": "输入契约: 通过检查的成果",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520401567-final-done",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "final",
+      "timestamp": "2026-10-09T04:33:21.567Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 最终交付",
+      "durationMs": 1,
+      "outputSummary": "{\"step\":\"final_delivery\",\"status\":\"COMPLETED\",\"summary\":\"项目“自动化验收测试项目”全流程执行完毕，已生成 VERIFIED 审计成果。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520441138-start",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": null,
+      "timestamp": "2026-10-09T04:34:01.138Z",
+      "eventType": "run_created",
+      "status": "RUNNING",
+      "source": "execution_orchestrator",
+      "action": "初始化运行实例",
+      "inputSummary": "项目: 自动化验收测试项目 (test-run-auto-1791520441136), 策略: auto_dependency",
+      "outputSummary": "执行拓扑包含 9 个节点，状态机启动。",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520441140-start-start",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "start",
+      "timestamp": "2026-10-09T04:34:01.140Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 项目入口与输入",
+      "inputSummary": "输入契约: 用户任务/资料",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520441141-start-done",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "start",
+      "timestamp": "2026-10-09T04:34:01.141Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 项目入口与输入",
+      "durationMs": 2,
+      "outputSummary": "{\"step\":\"entry_validation\",\"fileCount\":1,\"manifestId\":\"test-run-auto-1791520441136\",\"sourceKind\":\"files\",\"summary\":\"已加载项目输入清单，包含 1 个文件。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520441395-load-start",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "load",
+      "timestamp": "2026-10-09T04:34:01.395Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 按原生规则加载",
+      "inputSummary": "输入契约: 项目规则与文件",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520441398-load-done",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "load",
+      "timestamp": "2026-10-09T04:34:01.398Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 按原生规则加载",
+      "durationMs": 4,
+      "outputSummary": "{\"step\":\"rule_loading\",\"primaryRule\":\"Agent Skills 生态约定\",\"evidence\":[{\"path\":\"SKILL.md\",\"reason\":\"测试证据\"}],\"summary\":\"已按原生规约成功解析入口规则：Agent Skills 生态约定。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520441651-prep-start",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "prep",
+      "timestamp": "2026-10-09T04:34:01.652Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 资料准备",
+      "inputSummary": "输入契约: 标准化任务输入",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520441653-prep-done",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "prep",
+      "timestamp": "2026-10-09T04:34:01.653Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 资料准备",
+      "durationMs": 3,
+      "outputSummary": "{\"step\":\"context_preparation\",\"contextSize\":60,\"summary\":\"完成任务上下文提取与并行分支输入包打包。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520441906-market-start",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "market",
+      "timestamp": "2026-10-09T04:34:01.906Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 市场分析",
+      "inputSummary": "输入契约: 资料包",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520441907-market-done",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "market",
+      "timestamp": "2026-10-09T04:34:01.907Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 市场分析",
+      "durationMs": 2,
+      "outputSummary": "{\"branch\":\"market\",\"findings\":\"针对项目“自动化验收测试项目”完成市场与需求分析，核心规约覆盖非程序员工作流。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520442161-comp-start",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "comp",
+      "timestamp": "2026-10-09T04:34:02.161Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 竞争分析",
+      "inputSummary": "输入契约: 资料包",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520442162-comp-done",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "comp",
+      "timestamp": "2026-10-09T04:34:02.162Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 竞争分析",
+      "durationMs": 2,
+      "outputSummary": "{\"branch\":\"comp\",\"findings\":\"完成同类生态兼容性对比，已对齐 Agent Skills 生态约定 约定。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520442415-finance-start",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "finance",
+      "timestamp": "2026-10-09T04:34:02.415Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 财务分析",
+      "inputSummary": "输入契约: 资料包",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520442416-finance-done",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "finance",
+      "timestamp": "2026-10-09T04:34:02.416Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 财务分析",
+      "durationMs": 2,
+      "outputSummary": "{\"branch\":\"finance\",\"findings\":\"运行资源预算安全，当前零外部费用支出，未发起付费特权调用。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520442668-merge-start",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "merge",
+      "timestamp": "2026-10-09T04:34:02.668Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 综合判断",
+      "inputSummary": "输入契约: 分支成果",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520442669-merge-done",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "merge",
+      "timestamp": "2026-10-09T04:34:02.669Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 综合判断",
+      "durationMs": 2,
+      "outputSummary": "{\"step\":\"merge\",\"branchesMerged\":[\"market\",\"comp\",\"finance\"],\"summary\":\"市场、竞争与财务三路分支成果已成功汇聚对齐，无矛盾项。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520442924-verify-start",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "verify",
+      "timestamp": "2026-10-09T04:34:02.924Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 交付物检查",
+      "inputSummary": "输入契约: 综合判断稿",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520442927-verify-done",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "verify",
+      "timestamp": "2026-10-09T04:34:02.927Z",
+      "eventType": "verification_result",
+      "status": "VERIFIED",
+      "source": "runtime_executor",
+      "action": "节点完成: 交付物检查",
+      "durationMs": 4,
+      "outputSummary": "{\"verifiedArtifactId\":\"art-1791520442925-liaz\",\"passed\":true,\"checks\":[{\"checkName\":\"产物内容非空性校验\",\"passed\":true,\"detail\":\"产物包含有效内容，长度 303 字符。\"},{\"checkName\":\"SHA-256 数据完整性校验\",\"passed\":true,\"detail\":\"实际哈希值 8d5fcca80bb72546... 与声明哈希严格一致。\"},{\"checkName\":\"Markdown 规范结构标头校验\",\"passed\":true,\"detail\":\"检测到有效的 ",
+      "artifactIds": [
+        "art-1791520442925-liaz"
+      ],
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520443180-final-start",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "final",
+      "timestamp": "2026-10-09T04:34:03.180Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 最终交付",
+      "inputSummary": "输入契约: 通过检查的成果",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520443181-final-done",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "final",
+      "timestamp": "2026-10-09T04:34:03.181Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 最终交付",
+      "durationMs": 2,
+      "outputSummary": "{\"step\":\"final_delivery\",\"status\":\"COMPLETED\",\"summary\":\"项目“自动化验收测试项目”全流程执行完毕，已生成 VERIFIED 审计成果。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520471325-start",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": null,
+      "timestamp": "2026-10-09T04:34:31.325Z",
+      "eventType": "run_created",
+      "status": "RUNNING",
+      "source": "execution_orchestrator",
+      "action": "初始化运行实例",
+      "inputSummary": "项目: 自动化验收测试项目 (test-run-auto-1791520471321), 策略: auto_dependency",
+      "outputSummary": "执行拓扑包含 9 个节点，状态机启动。",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520471328-start-start",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "start",
+      "timestamp": "2026-10-09T04:34:31.328Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 项目入口与输入",
+      "inputSummary": "输入契约: 用户任务/资料",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520471329-start-done",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "start",
+      "timestamp": "2026-10-09T04:34:31.329Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 项目入口与输入",
+      "durationMs": 2,
+      "outputSummary": "{\"step\":\"entry_validation\",\"fileCount\":1,\"manifestId\":\"test-run-auto-1791520471321\",\"sourceKind\":\"files\",\"summary\":\"已加载项目输入清单，包含 1 个文件。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520471583-load-start",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "load",
+      "timestamp": "2026-10-09T04:34:31.583Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 按原生规则加载",
+      "inputSummary": "输入契约: 项目规则与文件",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520471584-load-done",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "load",
+      "timestamp": "2026-10-09T04:34:31.584Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 按原生规则加载",
+      "durationMs": 2,
+      "outputSummary": "{\"step\":\"rule_loading\",\"primaryRule\":\"Agent Skills 生态约定\",\"evidence\":[{\"path\":\"SKILL.md\",\"reason\":\"测试证据\"}],\"summary\":\"已按原生规约成功解析入口规则：Agent Skills 生态约定。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520471839-prep-start",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "prep",
+      "timestamp": "2026-10-09T04:34:31.839Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 资料准备",
+      "inputSummary": "输入契约: 标准化任务输入",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520471840-prep-done",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "prep",
+      "timestamp": "2026-10-09T04:34:31.840Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 资料准备",
+      "durationMs": 3,
+      "outputSummary": "{\"step\":\"context_preparation\",\"contextSize\":60,\"summary\":\"完成任务上下文提取与并行分支输入包打包。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520472093-market-start",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "market",
+      "timestamp": "2026-10-09T04:34:32.093Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 市场分析",
+      "inputSummary": "输入契约: 资料包",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520472094-market-done",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "market",
+      "timestamp": "2026-10-09T04:34:32.094Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 市场分析",
+      "durationMs": 2,
+      "outputSummary": "{\"branch\":\"market\",\"findings\":\"针对项目“自动化验收测试项目”完成市场与需求分析，核心规约覆盖非程序员工作流。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520472349-comp-start",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "comp",
+      "timestamp": "2026-10-09T04:34:32.349Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 竞争分析",
+      "inputSummary": "输入契约: 资料包",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520472350-comp-done",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "comp",
+      "timestamp": "2026-10-09T04:34:32.350Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 竞争分析",
+      "durationMs": 3,
+      "outputSummary": "{\"branch\":\"comp\",\"findings\":\"完成同类生态兼容性对比，已对齐 Agent Skills 生态约定 约定。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520472605-finance-start",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "finance",
+      "timestamp": "2026-10-09T04:34:32.605Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 财务分析",
+      "inputSummary": "输入契约: 资料包",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520472608-finance-done",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "finance",
+      "timestamp": "2026-10-09T04:34:32.608Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 财务分析",
+      "durationMs": 5,
+      "outputSummary": "{\"branch\":\"finance\",\"findings\":\"运行资源预算安全，当前零外部费用支出，未发起付费特权调用。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520472862-merge-start",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "merge",
+      "timestamp": "2026-10-09T04:34:32.862Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 综合判断",
+      "inputSummary": "输入契约: 分支成果",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520472863-merge-done",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "merge",
+      "timestamp": "2026-10-09T04:34:32.863Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 综合判断",
+      "durationMs": 2,
+      "outputSummary": "{\"step\":\"merge\",\"branchesMerged\":[\"market\",\"comp\",\"finance\"],\"summary\":\"市场、竞争与财务三路分支成果已成功汇聚对齐，无矛盾项。\"}",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520473117-verify-start",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "verify",
+      "timestamp": "2026-10-09T04:34:33.117Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 交付物检查",
+      "inputSummary": "输入契约: 综合判断稿",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520473120-verify-done",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "verify",
+      "timestamp": "2026-10-09T04:34:33.120Z",
+      "eventType": "verification_result",
+      "status": "VERIFIED",
+      "source": "runtime_executor",
+      "action": "节点完成: 交付物检查",
+      "durationMs": 5,
+      "outputSummary": "{\"verifiedArtifactId\":\"art-1791520473118-0x93\",\"passed\":true,\"checks\":[{\"checkName\":\"产物内容非空性校验\",\"passed\":true,\"detail\":\"产物包含有效内容，长度 303 字符。\"},{\"checkName\":\"SHA-256 数据完整性校验\",\"passed\":true,\"detail\":\"实际哈希值 2ad0d358bc8407e5... 与声明哈希严格一致。\"},{\"checkName\":\"Markdown 规范结构标头校验\",\"passed\":true,\"detail\":\"检测到有效的 ",
+      "artifactIds": [
+        "art-1791520473118-0x93"
+      ],
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520473375-final-start",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "final",
+      "timestamp": "2026-10-09T04:34:33.375Z",
+      "eventType": "node_started",
+      "status": "RUNNING",
+      "source": "runtime_executor",
+      "action": "开始执行节点: 最终交付",
+      "inputSummary": "输入契约: 通过检查的成果",
+      "redactionsApplied": true
+    },
+    {
+      "eventId": "evt-1791520473376-final-done",
+      "runId": "run-acceptance-1791520471322",
+      "nodeId": "final",
+      "timestamp": "2026-10-09T04:34:33.376Z",
+      "eventType": "action_result",
+      "status": "EXECUTED",
+      "source": "runtime_executor",
+      "action": "节点完成: 最终交付",
+      "durationMs": 3,
+      "outputSummary": "{\"step\":\"final_delivery\",\"status\":\"COMPLETED\",\"summary\":\"项目“自动化验收测试项目”全流程执行完毕，已生成 VERIFIED 审计成果。\"}",
+      "redactionsApplied": true
+    }
+  ],
+  "artifacts": [
+    {
+      "artifactId": "art-1791520442925-liaz",
+      "runId": "run-acceptance-1791520441137",
+      "nodeId": "verify",
+      "projectId": "test-run-auto-1791520441136",
+      "name": "自动化验收测试项目 任务执行分析报告.md",
+      "type": "markdown",
+      "content": "# ASI 任务执行报告 — 自动化验收测试项目\n生成时间: 2026-10-09T04:34:02.925Z\n项目 ID: test-run-auto-1791520441136\n生态规约: Agent Skills 生态约定\n\n## 1. 规则识别证据\n- **SKILL.md**: 测试证据\n\n## 2. 拓扑分支分析成果\n- 市场分析: 业务需求与非程序员工作流已对齐。\n- 竞争分析: 保持原生规则最小兼容层，不破坏原有目录契约。\n- 财务与安全: 处于受控沙箱安全边界内，零密钥外泄风险。\n\n## 3. 独立验证声明\n- SHA-256 数据完整性已通过校验。\n- 结构与元数据追溯链条完整。",
+      "sizeBytes": 601,
+      "sha256": "8d5fcca80bb72546f9acb98289ffd90ff0c5d61018281d1fb84ed18ea68bf40d",
+      "createdAt": "2026-10-09T04:34:02.925Z",
+      "verificationStatus": "VERIFIED",
+      "verificationReport": {
+        "passed": true,
+        "checks": [
+          {
+            "checkName": "产物内容非空性校验",
+            "passed": true,
+            "detail": "产物包含有效内容，长度 303 字符。"
+          },
+          {
+            "checkName": "SHA-256 数据完整性校验",
+            "passed": true,
+            "detail": "实际哈希值 8d5fcca80bb72546... 与声明哈希严格一致。"
+          },
+          {
+            "checkName": "Markdown 规范结构标头校验",
+            "passed": true,
+            "detail": "检测到有效的 Markdown 标题层级。"
+          },
+          {
+            "checkName": "溯源元数据完整性",
+            "passed": true,
+            "detail": "来源节点: verify, 关联运行: run-acceptance-1791520441137"
+          }
+        ],
+        "verifiedAt": "2026-10-09T04:34:02.926Z"
+      }
+    },
+    {
+      "artifactId": "art-1791520401312-76ag",
+      "runId": "run-acceptance-1791520399535",
+      "nodeId": "verify",
+      "projectId": "test-run-auto-1791520399535",
+      "name": "自动化验收测试项目 任务执行分析报告.md",
+      "type": "markdown",
+      "content": "# ASI 任务执行报告 — 自动化验收测试项目\n生成时间: 2026-10-09T04:33:21.312Z\n项目 ID: test-run-auto-1791520399535\n生态规约: Agent Skills 生态约定\n\n## 1. 规则识别证据\n- **SKILL.md**: 测试证据\n\n## 2. 拓扑分支分析成果\n- 市场分析: 业务需求与非程序员工作流已对齐。\n- 竞争分析: 保持原生规则最小兼容层，不破坏原有目录契约。\n- 财务与安全: 处于受控沙箱安全边界内，零密钥外泄风险。\n\n## 3. 独立验证声明\n- SHA-256 数据完整性已通过校验。\n- 结构与元数据追溯链条完整。",
+      "sizeBytes": 601,
+      "sha256": "b271a5e9d66256ee78fb12e04d2e69e63a04dd225961060d6ba3501e3bc28a8d",
+      "createdAt": "2026-10-09T04:33:21.312Z",
+      "verificationStatus": "VERIFIED",
+      "verificationReport": {
+        "passed": true,
+        "checks": [
+          {
+            "checkName": "产物内容非空性校验",
+            "passed": true,
+            "detail": "产物包含有效内容，长度 303 字符。"
+          },
+          {
+            "checkName": "SHA-256 数据完整性校验",
+            "passed": true,
+            "detail": "实际哈希值 b271a5e9d66256ee... 与声明哈希严格一致。"
+          },
+          {
+            "checkName": "Markdown 规范结构标头校验",
+            "passed": true,
+            "detail": "检测到有效的 Markdown 标题层级。"
+          },
+          {
+            "checkName": "溯源元数据完整性",
+            "passed": true,
+            "detail": "来源节点: verify, 关联运行: run-acceptance-1791520399535"
+          }
+        ],
+        "verifiedAt": "2026-10-09T04:33:21.312Z"
+      }
+    }
+  ],
+  "hasSeeded": true
+}

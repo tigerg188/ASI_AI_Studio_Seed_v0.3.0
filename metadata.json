@@ -1,0 +1,6 @@
+{
+  "name": "ASI (Agent / Skill Intelligence)",
+  "description": "面向非程序员的通用 Agent / Skill 项目识别、规则适配、受控执行与成果验证工作台",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
